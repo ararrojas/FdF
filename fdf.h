@@ -91,11 +91,20 @@ int		count_cols(char *line, char space);
 t_map	*map_init(void);
 
 // parse
+void	parse_line(char *line, t_map *map, int line_n);
 void	map_fill(char *file, t_map *map);
 int		valid_filename(char *file);
 void	map_load(char *file, t_map *map);
 
+// colors
+uint32_t	get_color(char *line);
+uint32_t	hex_to_rgba(unsigned int hex);
+
 // error
 void	ft_exit(char *str);
+
+// helpers
+void	map_free(t_map *map);
+void	ft_free_array(char **array);
 
 #endif

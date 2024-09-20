@@ -1,6 +1,6 @@
 #include "fdf.h"
 
-void	ft_error(char *str)
+void	ft_exit(char *str)
 {
 	if (errno == 0)
 	{

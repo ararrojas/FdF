@@ -20,11 +20,19 @@ void	parse_line(char *line, t_map *map, int	line_n)
 	i = 0;
 	start = line_n * map->width;
 	cols = ft_split(line, ' ');
-	ft_printf("#");
 	while (cols[i] && cols[i][0] != '\n')
 	{
-		map->point[start + 1].x = i;
+		map->point[start + i].x = i;
+		map->point[start + i].y = line_n;
+		map->point[start + i].z = ft_atoi(cols[i]);
+		if (map->point[start + i].z > map->max_z)
+			map->max_z = map->point[start + i].z;
+		if (map->point[start + i].z < map->min_z)
+			map->min_z = map->point[start + i].z;
+		map->point[start + i].color = get_color(cols[i]);
+		i++;
 	}
+	ft_free_array(cols);
 }
 
 void	map_fill(char *file, t_map *map)
@@ -42,9 +50,11 @@ void	map_fill(char *file, t_map *map)
 		parse_line(line, map, i);
 		free(line);
 		line = get_next_line(fd);
+		if (!line)
+			break ;
+		ft_printf("\n%s", line);
 		i++;
 	}
-	ft_printf("\n");
 	free(line);
 	close(fd);
 }
@@ -53,12 +63,11 @@ int	valid_filename(char *file)
 {
 	int	fd;
 
-	if (!ft_strnstr(file, ".fdf"), ft_strlen(file))
+	if (!ft_strnstr(file, ".fdf", ft_strlen(file)))
 		ft_exit(ERR_FILEEXT);
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
 		ft_exit(ERR_FILEOPEN);
-	ft_printf("\nCalculating map size...\n");
 	return (fd);	
 }
 
@@ -78,13 +87,13 @@ void	map_load(char *file, t_map *map)
 		if (map->height == 0)
 			map->width = width;
 		if (map->width != width)
-			ft_error(ERR_MAPWIDTH);
+			ft_exit(ERR_MAPWIDTH);
 		map->height++;
 		line = get_next_line(fd);
 	}
 	free(line);
 	close(fd);
-	map->len = map->height * map-width;
+	map->len = map->height * map->width;
 	if (map->len == 0)
 		ft_exit(ERR_MAPEMPTY);
 	map->point = ft_calloc(map->len, sizeof(t_point));

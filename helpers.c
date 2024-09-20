@@ -1,24 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   helpers.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: arojas-a <arojas-a@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/02 12:13:01 by arojas-a          #+#    #+#             */
-/*   Updated: 2024/09/13 16:35:47 by arojas-a         ###   ########.fr       */
+/*   Created: 2024/09/02 13:50:09 by arojas-a          #+#    #+#             */
+/*   Updated: 2024/09/13 12:39:34 by arojas-a         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "fdf.h"
 
-int32_t	main(int ac, char **av)
+void	map_free(t_map *map)
 {
-	t_fdf	fdf;
+	free(map->point);
+	free(map);
+}
 
-	if (ac != 2)
-		return (1);
-	fdf.map = map_init();
-	map_load(av[1], fdf.map);
-	map_free(fdf.map);	
+void	ft_free_array(char **array)
+{
+	int	i;
+
+	i = 0;
+	while (array && array[i])
+	{
+		free(array[i]);
+		i++;
+	}
+	free(array);
 }

@@ -32,7 +32,6 @@ int	count_cols(char *line, char space)
 			cols++;
 		}
 	}
-	ft_printf(".");
 	return (cols);
 }
 
@@ -46,7 +45,7 @@ t_map	*map_init(void)
 	map->len = 0;
 	map->min_z = INT_MAX;
 	map->max_z = INT_MIN;
-	map->points = NULL;
+	map->point = NULL;
 	return (map);
 }
 
