@@ -25,12 +25,12 @@
 # define HEIGHT 1000
 
 /* Error messages */
-# define ERR_ARGS		"ERROR: you must enter one (1) parameter"
+
 # define ERR_FILEEXT		"ERROR: file extension must be .fdf"
 # define ERR_FILEOPEN		"ERROR: file could not be open"
+# define ERR_MAPWIDTH		"ERROR: map width must be equal on all lines"
 # define ERR_MAPNOTVALID	"ERROR: map could not be parsed"
 # define ERR_MAPEMPTY		"ERROR: map is empty"
-# define ERR_MAPWIDTH		"ERROR: map width must be equal on all lines"
 
 typedef struct	s_point
 {
@@ -85,5 +85,17 @@ enum	e_projections
 {
 	ISOMETRIC,
 };
+
+// map
+int		count_cols(char *line, char space);
+t_map	*map_init(void);
+
+// parse
+void	map_fill(char *file, t_map *map);
+int		valid_filename(char *file);
+void	map_load(char *file, t_map *map);
+
+// error
+void	ft_exit(char *str);
 
 #endif
