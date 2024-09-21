@@ -23,7 +23,6 @@
 
 # define WIDTH 1200
 # define HEIGHT 1000
-# define ISO_ANGLE 0.463646716
 # define TRANSLATE 5
 
 /* Error messages */

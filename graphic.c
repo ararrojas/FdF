@@ -29,6 +29,6 @@ t_point	project_pt(t_point pt, t_fdf *fdf)
 		y = pt.y;
 	}
 	pt.x = x + WIDTH / 2 + fdf->cam->offset_x;
-	pt.y = y + (HEIGHT + fdf->map->height) / 2 + fdf->cam->offset_y;
+	pt.y = y + HEIGHT / 2 + fdf->cam->offset_y;
 	return (pt);
 }

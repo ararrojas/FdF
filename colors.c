@@ -65,6 +65,6 @@ uint32_t	get_color(char *line)
 		ft_free_array(arr);
 	}
 	else
-		color = hex_to_rgba(0x000000FF);
+		color = hex_to_rgba(0x00BFFFFF);
 	return (color);
 }
