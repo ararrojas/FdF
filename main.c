@@ -20,5 +20,19 @@ int32_t	main(int ac, char **av)
 		return (1);
 	fdf.map = map_init();
 	map_load(av[1], fdf.map);
-	map_free(fdf.map);	
+	fdf.mlx = mlx_init(WIDTH, HEIGHT, "FdF - arojas-a", true);
+	if (!fdf.mlx)
+		exit(EXIT_FAILURE);
+	fdf.img = mlx_new_image(fdf.mlx, WIDTH, HEIGHT);
+	if (!fdf.img)
+		exit(EXIT_FAILURE);
+	init_cam(&fdf);
+	//menu
+	draw_map(&fdf);
+	attach_hooks(&fdf);
+	mlx_loop(fdf.mlx);
+	mlx_terminate(fdf.mlx);
+	free(fdf.cam);
+	map_free(fdf.map);
+	return (0);
 }

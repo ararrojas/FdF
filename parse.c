@@ -19,6 +19,9 @@ void	parse_line(char *line, t_map *map, int	line_n)
 
 	i = 0;
 	start = line_n * map->width;
+	//ft_printf("start = %d\n", start);
+	//ft_printf("line_n = %d\n", line_n);
+	//ft_printf("map width = %d\n", map->width);
 	cols = ft_split(line, ' ');
 	while (cols[i] && cols[i][0] != '\n')
 	{

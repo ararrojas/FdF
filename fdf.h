@@ -23,6 +23,8 @@
 
 # define WIDTH 1200
 # define HEIGHT 1000
+# define ISO_ANGLE 0.463646716
+# define TRANSLATE 5
 
 /* Error messages */
 
@@ -64,9 +66,9 @@ typedef struct s_fdf
 	t_map		*map;
 	t_cam		*cam;
 	mlx_t		*mlx;
-	mlx_image_t	*image;
-	mlx_image_t	*help;
-	int		help_on;
+	mlx_image_t	*img;
+	//mlx_image_t	*help;
+	//int		help_on;
 }	t_fdf;
 
 typedef struct	s_bresenham
@@ -97,8 +99,30 @@ int		valid_filename(char *file);
 void	map_load(char *file, t_map *map);
 
 // colors
-uint32_t	get_color(char *line);
+int			interpolate(int a, int b, float factor);
+uint32_t	interpolate_color(t_point p0, t_point p1, t_bresenham br);
 uint32_t	hex_to_rgba(unsigned int hex);
+uint32_t	get_color(char *line);
+
+// camera
+void	init_cam(t_fdf *fdf);
+void	reset_cam(t_fdf *fdf);
+
+// drawing
+void	init_bresenham(t_point p0, t_point p1, t_bresenham *br);
+void	bresenham(t_point p0, t_point p1, mlx_image_t *img);
+void	clear_background(mlx_image_t *img);
+void	draw_map(t_fdf *fdf);
+
+// graphics
+int	pixel_limits(t_point *point);
+t_point	project_pt(t_point pt, t_fdf *fdf);
+
+// hooks
+void	attach_hooks(t_fdf *fdf);
+void	exit_esc(void *param);
+void	translate(void *param);
+void	zoom_hook(void *param);
 
 // error
 void	ft_exit(char *str);
