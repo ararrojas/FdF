@@ -34,6 +34,7 @@ void	parse_line(char *line, t_map *map, int	line_n)
 			map->min_z = map->point[start + i].z;
 		map->point[start + i].color = get_color(cols[i]);
 		i++;
+		//ft_printf("i = %d\n", i);
 	}
 	ft_free_array(cols);
 }

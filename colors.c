@@ -45,6 +45,7 @@ uint32_t	hex_to_rgba(unsigned int hex)
 	g = (hex >> 16) & 0xFF;
 	b = (hex >> 8) & 0xFF;
 	a = hex & 0xFF;
+
 	return ((r << 24) | (g << 16) | (b << 8) | a);
 }
 
@@ -57,14 +58,16 @@ uint32_t	get_color(char *line)
 	{
 		arr = ft_split(line, ',');
 		if (arr && arr[1])
+		{
 			color = ft_atoi_base(arr[1], "0123456789abcdef");
+			color = (color << 8) | 0xff;
+		}
 		else
 			color = 0;
-		color = (color << 8) | 0xff;
 		color = hex_to_rgba(color);
 		ft_free_array(arr);
 	}
 	else
-		color = hex_to_rgba(0x00BFFFFF);
+		color = hex_to_rgba(0xb530d9ff);
 	return (color);
 }

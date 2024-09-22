@@ -66,8 +66,6 @@ typedef struct s_fdf
 	t_cam		*cam;
 	mlx_t		*mlx;
 	mlx_image_t	*img;
-	//mlx_image_t	*help;
-	//int		help_on;
 }	t_fdf;
 
 typedef struct	s_bresenham

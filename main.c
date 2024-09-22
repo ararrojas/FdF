@@ -27,7 +27,6 @@ int32_t	main(int ac, char **av)
 	if (!fdf.img)
 		exit(EXIT_FAILURE);
 	init_cam(&fdf);
-	//menu
 	draw_map(&fdf);
 	attach_hooks(&fdf);
 	mlx_loop(fdf.mlx);
