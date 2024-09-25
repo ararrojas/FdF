@@ -1,6 +1,10 @@
 # FDF - Wireframe Model
 
-![42](https://raw.githubusercontent.com/ararrojas/fun/main/42.png?token=GHSAT0AAAAAACXNQ5TJQK7K3IGFGLQDFXWGZXFR6CA)
+![42](https://raw.githubusercontent.com/ararrojas/fdf-2/refs/heads/main/pics/42.png?token=GHSAT0AAAAAACXNQ5TIRUKKAULCS3X7CM6IZXTY4SQ)
+Submitted the project using only translation and zoom in the bonus -> got 110.
+
+![pyramide](https://raw.githubusercontent.com/ararrojas/fdf-2/refs/heads/main/pics/pyramide.png?token=GHSAT0AAAAAACXNQ5TJZ5MSST74QZOH3OKGZXTY4UQ)
+Now working on color gradients, rotations and other views.
 
 This project involves creating a wireframe model of a 3D landscape where all surfaces are outlined in lines. The program reads coordinates from a `.fdf` file and renders the landscape in isometric projection using the MiniLibX library.
 
