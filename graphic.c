@@ -25,11 +25,6 @@ t_point	project_pt(t_point pt, t_fdf *fdf)
 		x = (pt.x - pt.y) * cos(M_PI / 6);
 		y = (-pt.z + (pt.x + pt.y) * sin(M_PI / 6));
 	}
-	/*else
-	{
-		x = pt.x;
-		y = pt.y;
-	}*/
 	pt.x = x + WIDTH / 2 + fdf->cam->offset_x;
 	pt.y = y + HEIGHT / 2 + fdf->cam->offset_y;
 	return (pt);
