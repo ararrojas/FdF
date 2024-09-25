@@ -25,7 +25,7 @@
 # define HEIGHT 1000
 # define TRANSLATE 5
 
-/* Error messages */
+// Error messages
 
 # define ERR_FILEEXT		"ERROR: file extension must be .fdf"
 # define ERR_FILEOPEN		"ERROR: file could not be open"
@@ -108,7 +108,7 @@ void	reset_cam(t_fdf *fdf);
 // drawing
 void	init_bresenham(t_point p0, t_point p1, t_bresenham *br);
 void	bresenham(t_point p0, t_point p1, mlx_image_t *img);
-void	clear_background(mlx_image_t *img);
+void	background(mlx_image_t *img);
 void	draw_map(t_fdf *fdf);
 
 // graphics
@@ -121,11 +121,9 @@ void	exit_esc(void *param);
 void	translate(void *param);
 void	zoom_hook(void *param);
 
-// error
-void	ft_exit(char *str);
-
 // helpers
 void	map_free(t_map *map);
 void	ft_free_array(char **array);
+void	ft_exit(char *str);
 
 #endif

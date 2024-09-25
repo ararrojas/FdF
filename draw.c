@@ -56,7 +56,7 @@ void	bresenham(t_point p0, t_point p1, mlx_image_t *img)
 	}
 }
 
-void	clear_background(mlx_image_t *img)
+void	background(mlx_image_t *img)
 {
 	uint32_t i;
     uint32_t *pixels = (uint32_t *)img->pixels;
@@ -76,7 +76,7 @@ void	draw_map(t_fdf *fdf)
 	t_point			pt;
 	t_point			*pts;
 
-	clear_background(fdf->img);
+	background(fdf->img);
 	i = -1;
 	pts = fdf->map->point;
 	width = fdf->map->width;

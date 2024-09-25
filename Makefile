@@ -50,10 +50,10 @@ $(LIBFT_DIR):
 
 $(NAME): $(MLX) $(LIBFT) $(OBJS)
 	$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
+	@echo "\n $(GREEN) ===== FdF compiled! ===== $(END)\n"
 
 %.o: %.c fdf.h
 	$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)  
-	@echo "\n $(GREEN) ===== FdF compiled! ===== $(END)\n"
 
 clean:
 	rm -rf $(OBJS)
